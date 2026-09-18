@@ -27,7 +27,10 @@ function moverIzquierda(){
     actualizarPantalla();
 }
 
-
+function moverDerecha(){
+    personajeX = personajeX+10
+    actualizarPantalla();
+}
 
 function limpiarCanva(){
     ctx.clearRect(0,0,canvas.width, canvas.height);
