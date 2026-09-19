@@ -17,9 +17,10 @@ let puntaje = 0;
 let vidas = 3;
 
 let velocidadCaida = 200;
+let intervalo;
 
 function iniciar(){
-    setInterval(bajarLimon, velocidadCaida);//parametro 1 funcion, parametro 2 tiempo en milisegundos
+    intervalo = setInterval(bajarLimon, velocidadCaida);//parametro 1 funcion, parametro 2 tiempo en milisegundos
     dibujarSuelo();
     dibujarPersonaje();
     aparecerLimon();
@@ -85,6 +86,7 @@ function detectarColision(){
         }
         if(puntaje==10){
             alert("GANASTE EL JUEGO, AHORA VE A PREPARAR LA MICHELADA CON TODOS ESOS LIMONES!!!!!");
+            clearInterval(intervalo);
         }
     }
 }
@@ -97,6 +99,7 @@ function detectarPiso(){
         mostrarEnSpan("txtVidas",vidas);  
         if(vidas==0){
             alert("GAME OVER");
+            clearInterval(intervalo);
         }
     }
 }
