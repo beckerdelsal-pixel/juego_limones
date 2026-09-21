@@ -1,31 +1,144 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #0f172a;
-  color: white;
-  text-align: center;
-  margin: 0;
-  padding: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --verde-oscuro: #183a2d;
+  --verde: #2f7d4f;
+  --amarillo: #ffd84d;
+  --crema: #fffdf3;
+  --texto: #183026;
+  --sombra: 0 18px 45px rgba(24, 58, 45, 0.20);
 }
 
-.contenedor {
-  max-width: 800px;
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Nunito', Arial, sans-serif;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255, 216, 77, 0.30) 0 70px, transparent 71px),
+    radial-gradient(circle at 85% 20%, rgba(101, 167, 101, 0.25) 0 100px, transparent 101px),
+    linear-gradient(145deg, #f4f8d7 0%, #e2f0c7 48%, #cce5b7 100%);
+  color: var(--texto);
+  text-align: center;
+  margin: 0;
+  min-height: 100vh;
+  padding: 32px 18px 45px;
+}
+
+.contenedor { width: min(900px, 100%); margin: 0 auto; }
+.encabezado { margin-bottom: 22px; }
+
+.insignia {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 10px;
+  border-radius: 18px;
+  background: var(--amarillo);
+  font-size: 31px;
+  box-shadow: 0 8px 20px rgba(129, 105, 18, 0.20);
+  transform: rotate(-5deg);
+}
+
+.etiqueta {
+  margin: 0 0 5px;
+  color: var(--verde);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+}
+
+h1 {
+  margin: 0;
+  color: var(--verde-oscuro);
+  font-size: clamp(32px, 6vw, 52px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+}
+
+.subtitulo { margin: 13px 0 6px; font-size: 17px; font-weight: 700; color: #486151; }
+h2 { margin: 0; font-size: 13px; font-weight: 700; color: #6b7c6e; }
+
+.zona-juego {
+  padding: 22px;
+  background: rgba(255, 253, 243, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.90);
+  border-radius: 28px;
+  box-shadow: var(--sombra);
+  backdrop-filter: blur(8px);
+}
+
+.marco-canvas {
+  width: min(100%, 640px);
   margin: 0 auto;
+  padding: 8px;
+  border-radius: 21px;
+  background: linear-gradient(135deg, #234e38, #3e8553);
+  box-shadow: 0 10px 25px rgba(24, 58, 45, 0.22);
 }
 
 canvas {
   background-color: #111827;
-  border: 3px solid #38bdf8;
+  width: 100%;
+  height: auto;
   display: block;
-  margin: 20px auto;
+  border: 0;
+  border-radius: 14px;
+  outline: none;
 }
 
 .panel {
-  margin: 20px 0;
+  width: min(100%, 640px);
+  margin: 18px auto 15px;
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  background: var(--verde-oscuro);
+  border-radius: 18px;
+  color: white;
+  box-shadow: 0 8px 18px rgba(24, 58, 45, 0.16);
 }
 
+.estadistica { min-width: 125px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.icono { font-size: 24px; }
+.estadistica div { display: flex; flex-direction: column; align-items: flex-start; }
+.nombre-estadistica { font-size: 11px; text-transform: uppercase; letter-spacing: 1.2px; color: #c9ddc7; font-weight: 800; }
+.estadistica strong { color: var(--amarillo); font-size: 23px; line-height: 1.05; font-weight: 900; }
+.separador { width: 1px; height: 34px; background: rgba(255, 255, 255, 0.22); }
+
+.botones { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
 .botones button {
-  margin: 5px;
-  padding: 10px 16px;
-  font-size: 16px;
+  margin: 0;
+  min-height: 48px;
+  border: 0;
+  border-radius: 14px;
+  padding: 11px 21px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 800;
   cursor: pointer;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+}
+
+.botones button:hover { transform: translateY(-2px); filter: brightness(1.04); }
+.botones button:active { transform: translateY(1px); }
+
+.btn-control { color: white; background: var(--verde); box-shadow: 0 6px 14px rgba(47, 125, 79, 0.25); }
+.btn-control:hover { box-shadow: 0 9px 18px rgba(47, 125, 79, 0.30); }
+.btn-reiniciar { color: var(--verde-oscuro); background: var(--amarillo); box-shadow: 0 6px 14px rgba(187, 148, 20, 0.23); }
+.btn-reiniciar:hover { box-shadow: 0 9px 18px rgba(187, 148, 20, 0.30); }
+.botones button span { font-size: 19px; vertical-align: -1px; }
+.ayuda { margin: 15px 0 0; color: #718276; font-size: 12px; font-weight: 700; }
+
+@media (max-width: 600px) {
+  body { padding: 22px 10px 30px; }
+  .zona-juego { padding: 13px; border-radius: 21px; }
+  .panel { gap: 12px; padding: 11px 8px; }
+  .estadistica { min-width: 105px; }
+  .botones button { flex: 1 1 130px; }
+  .btn-reiniciar { flex-basis: 100%; }
 }

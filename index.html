@@ -1,28 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Caza Estrellas</title>
   <link rel="stylesheet" href="limones.css" />
   <script src="utils.js"></script>
 </head>
 <body onload="iniciar();">
-  <div class="contenedor">
-    <h1>Atrapar Limones</h1>
-    <p>Si del cielo te caen limones ..... </p>
-    <h2>Autor: Becker Del Salto</h2>
-    <canvas id="areaJuego" width="600" height="400"></canvas>
-    <div class="panel">
-      <p>Puntaje: <span id="txtPuntaje">0</span></p>
-      <p>Vidas: <span id="txtVidas">3</span></p>
-    </div>
-    <div class="botones">
-      <button onclick="moverIzquierda();">Izquierda</button>
-      <button onclick="moverDerecha();">Derecha</button>
+  <main class="contenedor">
+    <header class="encabezado">
+      <div class="insignia">🍋</div>
+      <p class="etiqueta">JUEGO DE REFLEJOS</p>
+      <h1>Atrapar Limones</h1>
+      <p class="subtitulo">Si del cielo te caen limones... ¡atrápalos todos!</p>
+      <h2>Autor: Becker Del Salto</h2>
+    </header>
 
+    <section class="zona-juego">
+      <div class="marco-canvas">
+        <canvas id="areaJuego" width="600" height="400"></canvas>
+      </div>
 
-      <button onclick="reiniciarJuego();">Reiniciar</button>
-    </div>
-  </div>
-<script src="limones.js"></script>
+      <div class="panel">
+        <div class="estadistica">
+          <span class="icono">🏆</span>
+          <div>
+            <span class="nombre-estadistica">Puntaje</span>
+            <strong id="txtPuntaje">0</strong>
+          </div>
+        </div>
+        <div class="separador"></div>
+        <div class="estadistica">
+          <span class="icono">❤️</span>
+          <div>
+            <span class="nombre-estadistica">Vidas</span>
+            <strong id="txtVidas">3</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="botones">
+        <button class="btn-control btn-izquierda" onclick="moverIzquierda();" aria-label="Mover a la izquierda">
+          <span>←</span> Izquierda
+        </button>
+        <button class="btn-control btn-derecha" onclick="moverDerecha();" aria-label="Mover a la derecha">
+          Derecha <span>→</span>
+        </button>
+        <button class="btn-reiniciar" onclick="reiniciarJuego();">
+          <span>↻</span> Reiniciar
+        </button>
+      </div>
+
+      <p class="ayuda">Usa los botones para mover al personaje y atrapar los limones.</p>
+    </section>
+  </main>
+
+  <script src="limones.js"></script>
 </body>
 </html>
