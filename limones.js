@@ -124,6 +124,6 @@ function desaparecerPersonaje(){
     //desaparecer personajes con clearRect 
     //ejes x,y 
     //ancho y alto del personaje
-    ctx.clearRect(300, 340, ANCHO_PERSONAJE, ALTURA_PERSONAJE);
+    ctx.clearRect(personajeX, personajeY, ANCHO_PERSONAJE, ALTURA_PERSONAJE);
     
 }
