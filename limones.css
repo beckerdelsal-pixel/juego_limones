@@ -142,3 +142,18 @@ canvas {
   .botones button { flex: 1 1 130px; }
   .btn-reiniciar { flex-basis: 100%; }
 }
+
+.personaje {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.personaje img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 8px 15px rgba(0, 0, 0, 0.5));
+}

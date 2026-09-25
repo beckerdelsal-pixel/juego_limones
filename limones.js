@@ -118,6 +118,7 @@ function reiniciarJuego(){
     velocidadCaida=200;
     clearInterval(intervalo);
     iniciar();
+    
 }
 
 function desaparecerPersonaje(){
